@@ -1,0 +1,9 @@
+.vscode/
+data/dataset
+data/example
+data/tf_record_files
+class.names
+train.txt
+test.txt
+backup
+api/__pycache__
