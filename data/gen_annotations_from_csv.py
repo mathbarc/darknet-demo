@@ -56,8 +56,8 @@ def genAnnotations(filePath, outputDir, fileListName, labelMap = {}):
 
 
 if __name__=="__main__":
-    labelMap = genAnnotations("/data/Projetos/Pessoal/darknet-demo/data/tf_record_files/train_labels.csv", "/data/Projetos/Pessoal/darknet-demo/data/dataset/train", "train.txt")
-    genAnnotations("/data/Projetos/Pessoal/darknet-demo/data/tf_record_files/test_labels.csv", "/data/Projetos/Pessoal/darknet-demo/data/dataset/test", "test.txt", labelMap)
+    labelMap = genAnnotations("./data/tf_record_files/train_labels.csv", "./data/dataset/train", "train.txt")
+    genAnnotations("./data/tf_record_files/test_labels.csv", "./data/dataset/test", "test.txt", labelMap)
 
     file = open("class.name", 'w')
     sortedLabels = sorted(labelMap.items(), key=lambda x:x[1])
