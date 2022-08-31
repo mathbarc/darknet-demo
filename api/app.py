@@ -6,9 +6,9 @@ import cv2
 
 app = Flask(__name__)
 
-labelsFile = open("class.names", "r")
+labelsFile = open("class.name", "r")
 labelsList = [label.strip() for label in labelsFile.readlines()]
-model = yolo.Yolo("yolov4-tiny.cfg", "backup/yolov4-tiny_best.weights",labelsList, (416, 416), 0.3)
+model = yolo.Yolo("yolov4-tiny.cfg", "backup/yolov4-tiny_final.weights",labelsList, (416, 416), 0.3)
 
 
 def readb64(uri):
