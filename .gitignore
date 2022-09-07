@@ -7,3 +7,5 @@ train.txt
 test.txt
 backup
 api/__pycache__
+*.png
+bad.list
