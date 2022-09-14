@@ -9,19 +9,16 @@ function readFileB () {
         var data = new FormData();
         data.append("image", reader.result);
 
-        let imgTag = document.getElementById("demoShowB");
-        imgTag.src = reader.result;
-
         var xhr = new XMLHttpRequest();
         xhr.withCredentials = false;
 
-        xhr.open("POST", "http://127.0.0.1:5000/classify");
+        xhr.open("POST", "http://127.0.0.1:5000/detect");
 
         xhr.onload = function() {
-            let resultTag = document.getElementById("result");
+            let resultTag = document.getElementById("image");
             console.log(this.responseText)
             result = JSON.parse(this.response)
-            resultTag.innerHTML = "Label: "+result[0].label+"<br>Confidence: "+result[0].prob ;
+            resultTag.src = result["image"];
         };
 
         xhr.send(data);
@@ -30,5 +27,5 @@ function readFileB () {
     
     reader.readAsDataURL(selected);
 
-  
+
 }

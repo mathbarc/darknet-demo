@@ -3,8 +3,10 @@ from flask import Flask, request, jsonify
 import numpy
 import base64
 import cv2
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 labelsFile = open("class.name", "r")
 labelsList = [label.strip() for label in labelsFile.readlines()]
@@ -31,7 +33,8 @@ def detect():
 
     for det in result:
         cv2.rectangle(img, det["roi"], (0,255,0))
-    
+    cv2.imwrite("test.png", img)
+
     output = {}
     output["image"] = "data:image/jpeg;base64,"+str(writeb64(img))
     output["detections"] = result
