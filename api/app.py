@@ -11,6 +11,7 @@ CORS(app)
 labelsFile = open("class.name", "r")
 labelsList = [label.strip() for label in labelsFile.readlines()]
 model = yolo.Yolo("PSE_detector.cfg", "PSE_detector.weights",labelsList, (416, 416), 0.3)
+model.set_backend(cv2.dnn.DNN_BACKEND_OPENCV, cv2.dnn.DNN_TARGET_OPENCL)
 
 
 def readb64(uri):
@@ -33,7 +34,6 @@ def detect():
 
     for det in result:
         cv2.rectangle(img, det["roi"], (0,255,0))
-    cv2.imwrite("test.png", img)
 
     output = {}
     output["image"] = "data:image/jpeg;base64,"+str(writeb64(img))
