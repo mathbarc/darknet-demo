@@ -10,7 +10,7 @@ CORS(app)
 
 labelsFile = open("class.name", "r")
 labelsList = [label.strip() for label in labelsFile.readlines()]
-model = yolo.Yolo("yolov4-tiny.cfg", "backup/yolov4-tiny_final.weights",labelsList, (416, 416), 0.3)
+model = yolo.Yolo("PSE_detector.cfg", "PSE_detector.weights",labelsList, (416, 416), 0.3)
 
 
 def readb64(uri):
