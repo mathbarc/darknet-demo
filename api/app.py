@@ -8,7 +8,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-labelsFile = open("class.name", "r")
+labelsFile = open("class.names", "r")
 labelsList = [label.strip() for label in labelsFile.readlines()]
 model = yolo.Yolo("PSE_detector.cfg", "PSE_detector.weights",labelsList, (416, 416), 0.3)
 model.set_backend(cv2.dnn.DNN_BACKEND_OPENCV, cv2.dnn.DNN_TARGET_OPENCL)

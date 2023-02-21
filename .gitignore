@@ -1,11 +1,14 @@
 .vscode/
 data/dataset
 data/example
-data/tf_record_files
-class.names
+**/dataset/
+**/tf_record_files
 train.txt
 test.txt
 backup
 api/__pycache__
 *.png
+*.jpg
+**.cfg
+**.weights
 bad.list
